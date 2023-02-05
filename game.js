@@ -14,7 +14,7 @@ class Snake {
     }
     //! hàm cập nhật vị trí rắn
     update() {
-        this.body.push(createVector(this.head.x, this.head.y)); //! add to the end of Array
+        this.body.push(createVector(this.head.x, this.head.y)); //! add to the end of Array, push một điểm vào trong array
 
         this.head.x += this.vel.x * GRID_SIZE; //! x ngang y dọc
         this.head.y += this.vel.y * GRID_SIZE;
@@ -22,7 +22,7 @@ class Snake {
         this.head.x = (this.head.x + WITDH) % WITDH;
         this.head.y = (this.head.y + HEIGHT) % HEIGHT;
 
-        if (this.length < this.body.length) {
+        if (this.length < this.body.length) { //! nếu chưa ăn thì length nhỏ hơn body.length nên sẽ xoá điểm được push đi
             this.body.shift(); //! remove the first element from the array và trả về phần tử ấy => clear body
         }
         //! kiểm tra xem rắn có cắn vào thân không
